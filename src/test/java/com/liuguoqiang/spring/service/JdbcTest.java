@@ -22,8 +22,8 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 public class JdbcTest {
 
-   // @Autowired
-  //  private UserService userService;
+    @Autowired
+    private UserService userService;
 
     //测试mysql数据库连接
     @Test
@@ -40,19 +40,19 @@ public class JdbcTest {
         System.out.println(conn);
     }
 
-    //测试数据查询
-//    @Test
-//    public void selectTest(){
-//          try {
-//             List<User> list=userService.selectAll();
-//                  list.forEach(s->{
-//                      System.out.println(s.getName());
-//                  });
-//              List<User> list1=userService.selectById(1L);
-//             System.out.println(list1.get(0).getAge()+"-----------------------");
-//          }catch (Exception e){
-//              e.printStackTrace();
-//          }
-//    }
+   // 测试数据查询
+    @Test
+    public void selectTest(){
+          try {
+             List<User> list=userService.selectAll();
+                  list.forEach(s->{
+                      System.out.println(s.getName());
+                  });
+              List<User> list1=userService.selectById(1L);
+             System.out.println(list1.get(0).getAge()+"-----------------------");
+          }catch (Exception e){
+              e.printStackTrace();
+          }
+    }
 
 }
