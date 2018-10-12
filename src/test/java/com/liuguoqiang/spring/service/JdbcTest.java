@@ -40,7 +40,7 @@ public class JdbcTest {
         System.out.println(conn);
     }
 
-   // 测试数据查询
+   // 测试数据查询测试
     @Test
     public void selectTest(){
           try {
