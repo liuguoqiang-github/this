@@ -8,16 +8,12 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     /**
-     *
      * 查询所有
-     *
      */
     List<User> selectAll();
 
     /**
-     * @param id
-     * 根据id查询用户信息
-     *
+     * @param id 根据id查询用户信息
      */
     List<User> selectById(Long id);
 }

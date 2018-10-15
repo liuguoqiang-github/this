@@ -26,17 +26,17 @@ public class DayTest {
      * 使用传统io stream 下载文件
      *
      */
-    public void  downloadTest(){
+    public void downloadTest() {
         InputStream ins = null;
         BufferedOutputStream bos = null;
         try {
-           // System.setProperty("https.protocols", "TLSv1");
+            // System.setProperty("https.protocols", "TLSv1");
             ins = new URL("https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js").openStream();
             File file = new File("D:\\jquery.js");
             bos = new BufferedOutputStream(new FileOutputStream(file));
             int count = 0;
             byte[] bytes = new byte[1024];
-            while ( (count = ins.read(bytes)) != -1) {
+            while ((count = ins.read(bytes)) != -1) {
                 bos.write(bytes, 0, count);
             }
             System.out.println("文件下载成功!");
@@ -47,7 +47,7 @@ public class DayTest {
                 ins.close();
                 bos.close();
             } catch (IOException e) {
-                System.out.println("流关闭失败："+e.getMessage());
+                System.out.println("流关闭失败：" + e.getMessage());
             }
         }
     }
@@ -58,7 +58,7 @@ public class DayTest {
      * 利用 commonio 库下载文件，依赖Apache Common IO ，官网 https://commons.apache.org/proper/commons-io/
      *
      */
-    public  void downloadByApacheCommonIO(){
+    public void downloadByApacheCommonIO() {
         try {
             FileUtils.copyURLToFile(new URL("https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"), new File("D:\\jquery.js"));
         } catch (IOException e) {
@@ -73,7 +73,7 @@ public class DayTest {
      * @param saveDir
      * @param fileName
      */
-    public  void downloadByNIO2() {
+    public void downloadByNIO2() {
         try (InputStream ins = new URL("https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js").openStream()) {
             Path target = Paths.get("D:\\jquery.js");
             Files.createDirectories(target.getParent());
@@ -92,10 +92,10 @@ public class DayTest {
      * @param saveDir
      * @param fileName
      */
-    public void fileOpt()  throws IOException {
-         String fileName = "D:\\user.json";
+    public void fileOpt() throws IOException {
+        String fileName = "D:\\user.json";
         File file = new File(fileName);
-        if(!file.exists()){
+        if (!file.exists()) {
             file.createNewFile();
         }
         String content = "{name:'保密',location:'杭州'}";
@@ -110,8 +110,8 @@ public class DayTest {
         FileOutputStream output = new FileOutputStream(new File("D:\\user_copy.json"));
         byte[] bytes = new byte[1024];
         int len;
-        while ((len = input.read(bytes))>0){
-            output.write(bytes,0,len);
+        while ((len = input.read(bytes)) > 0) {
+            output.write(bytes, 0, len);
         }
         output.flush();
         input.close();
@@ -125,52 +125,39 @@ public class DayTest {
      * @param saveDir
      * @param fileName
      */
-    public void MusicCompound ()  throws IOException {
+    public void MusicCompound() throws IOException {
         FileOutputStream fileOutputStream = null;
         FileInputStream fileInputStream = null;
-        String fileNames[] = {"E:/CloudMusic/悟空.mp3","E:/CloudMusic/没你的周末.mp3"};
+        String fileNames[] = {"E:/CloudMusic/悟空.mp3", "E:/CloudMusic/没你的周末.mp3"};
         //设置byte数组，每次往输出流中传入8K的内容
-        byte by[] = new byte[1024*8];
-        try
-        {
+        byte by[] = new byte[1024 * 8];
+        try {
             fileOutputStream = new FileOutputStream("E:/CloudMusic/合并.mp3");
-            for(int i=0;i<2;i++)
-            {
+            for (int i = 0; i < 2; i++) {
                 int count = 0;
                 fileInputStream = new FileInputStream(fileNames[i]);
                 //跳过前面3M的歌曲内容
-                fileInputStream.skip(1024*1024*3);
-                while(fileInputStream.read(by) != -1)
-                {
+                fileInputStream.skip(1024 * 1024 * 3);
+                while (fileInputStream.read(by) != -1) {
                     fileOutputStream.write(by);
                     count++;
                     System.out.println(count);
                     //要截取中间2MB的内容，每次输入8k的内容，所以输入的次数是1024*2/8
-                    if(count == (1024*2/8))
-                    {
+                    if (count == (1024 * 2 / 8)) {
                         break;
                     }
                 }
             }
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
+        } finally {
+            try {
                 //输出完成后关闭输入输出流
                 fileInputStream.close();
                 fileOutputStream.close();
-            }
-            catch(IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

@@ -40,19 +40,19 @@ public class JdbcTest {
         System.out.println(conn);
     }
 
-   // 测试数据查询测试
+    // 测试数据查询测试
     @Test
-    public void selectTest(){
-          try {
-             List<User> list=userService.selectAll();
-                  list.forEach(s->{
-                      System.out.println(s.getName());
-                  });
-              List<User> list1=userService.selectById(1L);
-             System.out.println(list1.get(0).getAge()+"-----------------------");
-          }catch (Exception e){
-              e.printStackTrace();
-          }
+    public void selectTest() {
+        try {
+            List<User> list = userService.selectAll();
+            list.forEach(s -> {
+                System.out.println(s.getName());
+            });
+            List<User> list1 = userService.selectById(1L);
+            System.out.println(list1.get(0).getAge() + "-----------------------");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

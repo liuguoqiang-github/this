@@ -23,24 +23,25 @@ public class RedisManagerTest {
     private RedisManager redisManager;
 
     @Test
-    public void setTest(){
-        redisManager.setStr("124445","3455");
-    }
-    @Test
-    public void setTest1(){
-        redisManager.setStr("111","3455");
+    public void setTest() {
+        redisManager.setStr("124445", "3455");
     }
 
     @Test
-    public void setMapTest(){
-        redisManager.setMap("test-map-1","a1","qqq");
+    public void setTest1() {
+        redisManager.setStr("111", "3455");
     }
 
     @Test
-    public void getMapTest(){
-        System.out.println("-------------------------------------"+redisManager.getMap("test-map-1","a1"));
-        Assert.assertNotNull("redis查询为空", redisManager.getMap("test-map-1","a1"));
-       // Assert.assertEquals("结果不正确",alarmDO.getDeviceName(),"SDFSDSDFSDF");
+    public void setMapTest() {
+        redisManager.setMap("test-map-1", "a1", "qqq");
+    }
+
+    @Test
+    public void getMapTest() {
+        System.out.println("-------------------------------------" + redisManager.getMap("test-map-1", "a1"));
+        Assert.assertNotNull("redis查询为空", redisManager.getMap("test-map-1", "a1"));
+        // Assert.assertEquals("结果不正确",alarmDO.getDeviceName(),"SDFSDSDFSDF");
     }
 
 }

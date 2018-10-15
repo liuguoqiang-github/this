@@ -64,7 +64,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.id
      *
      * @return the value of product.id
-     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -76,7 +75,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.id
      *
      * @param id the value for product.id
-     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -88,7 +86,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.name
      *
      * @return the value of product.name
-     *
      * @mbggenerated
      */
     public String getName() {
@@ -100,7 +97,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.name
      *
      * @param name the value for product.name
-     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -112,7 +108,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.price
      *
      * @return the value of product.price
-     *
      * @mbggenerated
      */
     public String getPrice() {
@@ -124,7 +119,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.price
      *
      * @param price the value for product.price
-     *
      * @mbggenerated
      */
     public void setPrice(String price) {
@@ -136,7 +130,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.status
      *
      * @return the value of product.status
-     *
      * @mbggenerated
      */
     public String getStatus() {
@@ -148,7 +141,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.status
      *
      * @param status the value for product.status
-     *
      * @mbggenerated
      */
     public void setStatus(String status) {
@@ -160,7 +152,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.store
      *
      * @return the value of product.store
-     *
      * @mbggenerated
      */
     public String getStore() {
@@ -172,7 +163,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.store
      *
      * @param store the value for product.store
-     *
      * @mbggenerated
      */
     public void setStore(String store) {
@@ -184,7 +174,6 @@ public class Product implements Serializable {
      * This method returns the value of the database column product.des
      *
      * @return the value of product.des
-     *
      * @mbggenerated
      */
     public String getDes() {
@@ -196,7 +185,6 @@ public class Product implements Serializable {
      * This method sets the value of the database column product.des
      *
      * @param des the value for product.des
-     *
      * @mbggenerated
      */
     public void setDes(String des) {
@@ -222,11 +210,11 @@ public class Product implements Serializable {
         }
         Product other = (Product) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getStore() == null ? other.getStore() == null : this.getStore().equals(other.getStore()))
-            && (this.getDes() == null ? other.getDes() == null : this.getDes().equals(other.getDes()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getPrice() == null ? other.getPrice() == null : this.getPrice().equals(other.getPrice()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getStore() == null ? other.getStore() == null : this.getStore().equals(other.getStore()))
+                && (this.getDes() == null ? other.getDes() == null : this.getDes().equals(other.getDes()));
     }
 
     /**
