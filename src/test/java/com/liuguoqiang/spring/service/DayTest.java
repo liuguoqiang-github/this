@@ -163,4 +163,50 @@ public class DayTest {
         }
     }
 
+    @Test
+    public void BufferedStreamTest() throws IOException {
+        //读取文件的缓冲输入字节流
+        BufferedInputStream in = null;
+        //写入文件的缓冲输出字节流
+        BufferedOutputStream out = null;
+        try {
+            in = new BufferedInputStream(new FileInputStream("D:\\test\\test.jpg"));
+            File file = new File("D:\\test\\test1.jpg");
+            if (file != null) {
+                file.createNewFile();
+            }
+            out = new BufferedOutputStream(new FileOutputStream(file));
+            byte[] bytes = new byte[1024];
+            //每次读取到的字节数组的长度
+            int length;
+            while ((length = in.read(bytes)) > 0) {
+                //写入到输出流
+                out.write(bytes, 0, length);
+            }
+            out.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(in != null){
+                try {
+                    // 关闭缓冲输入流
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(out != null){
+                try {
+                    // 关闭缓冲输出流
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
 }
